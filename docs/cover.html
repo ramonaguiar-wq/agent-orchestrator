@@ -1,0 +1,28 @@
+<!doctype html><meta charset=utf-8><style>
+*{box-sizing:border-box;margin:0}body{width:1600px;height:800px;background:#f4efe6;color:#1b1a17;font-family:Georgia,serif;padding:72px 88px;position:relative}
+.k{font:600 22px ui-monospace,Menlo,monospace;color:#c2410c;letter-spacing:.08em;text-transform:uppercase}
+h1{font-size:92px;line-height:1;margin:22px 0 22px;font-weight:700;letter-spacing:-.02em;max-width:760px}
+p{font-size:30px;line-height:1.35;max-width:700px;color:#4a463e}
+pre{position:absolute;right:88px;top:72px;width:640px;height:656px;background:#1b1a17;color:#f4efe6;border-radius:14px;padding:34px 38px;font:22px/1.55 ui-monospace,Menlo,monospace;overflow:hidden}
+.c{color:#8c877b}.a{color:#fb923c}.g{color:#86efac}
+.f{position:absolute;left:88px;bottom:64px;font:22px ui-monospace,Menlo,monospace;color:#4a463e}
+</style><div class=k>agent-orchestrator</div><h1>Route the task. Watch the budget.</h1><p>A config-driven router for Claude and Gemini, with token budgets, session health and fallback.</p>
+<div class=f>route → session → call → record · 11 tests · zero deps</div>
+<pre><span class=c>// config/routes.json</span>
+{
+  <span class=a>"budgets"</span>: { "claude": <span class=g>200000</span> },
+  <span class=a>"routes"</span>: {
+    "design_analysis": {
+      "model": "claude"
+    },
+    "quick_summary": {
+      "model": "gemini",
+      "fallback": "claude"
+    }
+  }
+}
+
+<span class=c>// run 3 tasks, budget 250 tokens</span>
+claude  <span class=c>→ deep design critique</span>
+claude  <span class=c>→ deep design critique</span>
+gemini  <span class=a>→ claude budget used (400/250)</span></pre>

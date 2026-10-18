@@ -1,0 +1,14 @@
+{
+  "default": { "model": "claude", "fallback": "gemini" },
+  "budgets": { "claude": 200000 },
+  "routes": {
+    "design_analysis":      { "model": "claude", "reason": "deep design critique" },
+    "ux_research":          { "model": "claude", "reason": "long-form research synthesis" },
+    "design_specification": { "model": "claude", "reason": "detailed, structured specs" },
+    "code_review":          { "model": "claude", "reason": "structured code review" },
+    "architecture_design":  { "model": "claude", "reason": "multi-step reasoning" },
+    "quick_summary":        { "model": "gemini", "fallback": "claude", "reason": "short and cheap" },
+    "list_generation":      { "model": "gemini", "fallback": "claude", "reason": "short and cheap" },
+    "fast_lookup":          { "model": "gemini", "fallback": "claude", "reason": "short and cheap" }
+  }
+}

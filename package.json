@@ -1,0 +1,9 @@
+{
+  "name": "agent-orchestrator",
+  "version": "0.2.0",
+  "description": "Config-driven router for Claude and Gemini with token budgets, session health and fallback.",
+  "main": "src/orchestrator.js",
+  "scripts": { "start": "node src/server.js", "test": "node --test test/" },
+  "engines": { "node": ">=20" },
+  "license": "MIT"
+}
